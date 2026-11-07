@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Lara Seline: DJ e produtora brasileira de Melodic House, Indie Dance, House e Techno. Fotos, vídeos e material de imprensa.">
+<meta property="og:title" content="Lara Seline · Electronic Music Artist">
+<meta property="og:image" content="img/estudio-oculos.jpg">
+<link rel="icon" href="img/logo.jpg">
+<title>LARASELINE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800;900&family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: club booth at night. Chrome logo on a platter, stage photo behind, playable pads, then the press material. */
+:root{
+  --bg:#060608;
+  --panel:#101015;
+  --panel-2:#17171e;
+  --line:#2a2a34;
+  --fg:#f1f1f4;
+  --muted:#9b9bab;
+  --ice:#8fe9ff;
+  --uv:#b58cff;
+  --ok:#5ee3a1;
+  --chrome:linear-gradient(180deg,#ffffff 0%,#d9dce3 28%,#7d818c 50%,#eef0f4 66%,#a7abb5 100%);
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ice);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chrome{background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.02}
+h2{font-size:clamp(30px,5vw,54px);font-weight:900;letter-spacing:-.01em}
+section{padding-block:clamp(56px,9vw,104px);scroll-margin-top:72px}
+.head{display:grid;gap:14px;margin-bottom:clamp(28px,4vw,44px);max-width:760px}
+.head p{color:var(--muted);margin:0;font-size:17px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:18px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:15px;letter-spacing:.04em;flex:none}
+.brand img{width:34px;height:34px;border-radius:50%}
+.nav nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav nav a{text-decoration:none;font-size:14px;font-weight:600;color:var(--muted);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.nav nav a:hover{color:var(--fg)}
+.nav nav a.tab{color:var(--fg);border:1px solid var(--line);display:inline-flex;align-items:center;gap:6px}
+.nav nav a.tab svg{width:15px;height:15px}
+.nav nav a.tab[aria-current="page"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);font-weight:800;font-size:15px;text-decoration:none;border:0;border-radius:999px;padding:14px 22px;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-chrome{background:var(--chrome);color:#0a0a0d}
+.btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--muted)}
+.btn-sm{padding:9px 16px;font-size:13px}
+.btn-sm svg{width:16px;height:16px}
+.btn[disabled]{opacity:.55;cursor:progress;transform:none}
+
+/* download button on media */
+.dlb{position:absolute;z-index:2;top:10px;right:10px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:rgba(6,6,8,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);color:#fff;transition:background .2s,transform .15s}
+.dlb:hover{background:#fff;color:#0a0a0d;transform:scale(1.06)}
+.dlb svg{width:19px;height:19px}
+.dlb.busy{pointer-events:none}
+.dlb.busy svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(40px,7vw,84px) clamp(48px,7vw,92px);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(img/show-palco.jpg) center 40%/cover;opacity:.42}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 18%,rgba(6,6,8,.55) 60%,rgba(6,6,8,.7)),linear-gradient(0deg,var(--bg),transparent 45%)}
+#viz{position:absolute;inset:auto 0 0 0;width:100%;height:55%;opacity:.55;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:center}
+.hero-copy{min-width:0;display:grid;gap:22px}
+.hero h1{font-size:clamp(44px,8.6vw,108px);font-weight:900;letter-spacing:-.02em;line-height:.92;filter:drop-shadow(0 6px 30px rgba(143,233,255,.18))}
+.tag{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--fg);background:var(--panel)}
+.chip .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:8px;vertical-align:1px;box-shadow:0 0 10px var(--ok);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+.lede{font-size:clamp(17px,1.7vw,20px);color:var(--muted);max-width:46ch;margin:0}
+.lede b{color:var(--fg)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+
+/* turntable */
+.deck{position:relative;aspect-ratio:1;max-width:100%;width:min(460px,100%);justify-self:center;border-radius:28px;background:linear-gradient(145deg,#1b1b22,#0b0b0f);border:1px solid var(--line);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 40px 80px -30px rgba(0,0,0,.9);padding:9%}
+.platter{position:relative;width:100%;height:100%;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#121216 0 2px,#1d1d23 2px 3px);box-shadow:0 0 0 6px #23232b,0 0 0 7px #3a3a44,0 20px 50px rgba(0,0,0,.7);cursor:grab;touch-action:none;will-change:transform}
+.platter:active{cursor:grabbing}
+.platter::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,transparent 0 40deg,rgba(255,255,255,.08) 60deg,transparent 90deg,transparent 200deg,rgba(255,255,255,.06) 230deg,transparent 260deg)}
+.platter img{position:absolute;inset:31%;width:38%;height:38%;border-radius:50%;box-shadow:0 0 0 3px #000}
+.arm{position:absolute;top:6%;right:7%;width:9%;height:58%;transform-origin:50% 8%;transform:rotate(22deg);pointer-events:none}
+.arm::before{content:"";position:absolute;left:50%;top:0;width:44px;height:44px;margin-left:-22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f4f5f8,#7b7f89 70%);box-shadow:0 4px 12px rgba(0,0,0,.6)}
+.arm::after{content:"";position:absolute;left:50%;top:20px;width:6px;height:calc(100% - 20px);margin-left:-3px;border-radius:3px;background:var(--chrome)}
+.deck .readout{position:absolute;left:7%;bottom:4.5%;display:flex;gap:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+.deck .readout b{color:var(--ice);font-weight:600}
+.deck .hint{position:absolute;right:7%;bottom:4.5%;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--panel);overflow:hidden;padding-block:16px}
+.marquee .track{display:flex;width:max-content;animation:scroll 28s linear infinite}
+.marquee span{font-family:var(--f-display);font-weight:800;font-size:clamp(18px,2.4vw,26px);padding-inline:22px;white-space:nowrap;color:var(--muted)}
+.marquee span.hl{color:transparent;-webkit-text-stroke:1px var(--ice)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,5vw,64px);align-items:start}
+.about figure{position:relative;margin:0;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.about figure img{display:block;width:100%;height:auto}
+.about blockquote{position:absolute;left:0;right:0;bottom:0;margin:0;padding:80px 22px 22px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-family:var(--f-display);font-weight:800;font-size:clamp(17px,1.8vw,22px);line-height:1.25;color:#fff;text-transform:uppercase}
+.about blockquote em{font-style:normal;color:var(--uv)}
+.about-text{min-width:0}
+.about-text p{color:var(--muted);margin:0 0 16px;max-width:62ch}
+.about-text p.lead{font-size:clamp(19px,2vw,23px);color:var(--fg);line-height:1.45}
+.about-text p.sign{font-family:var(--f-display);font-weight:800;color:var(--fg);font-size:18px;margin-top:24px}
+
+/* pads */
+.mixer{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(16px,3vw,28px)}
+.pads{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pad{position:relative;aspect-ratio:1;max-width:100%;border-radius:16px;border:1px solid #33333f;background:linear-gradient(160deg,#1e1e26,#121218);color:var(--fg);font-family:var(--f-display);font-weight:800;font-size:clamp(12px,1.6vw,16px);letter-spacing:.04em;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:12px;text-align:left;transition:transform .08s ease,background .2s,box-shadow .2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.pad kbd{font-family:var(--f-mono);font-size:11px;font-weight:400;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+.pad[data-c="ice"]{--glow:var(--ice)}
+.pad[data-c="uv"]{--glow:var(--uv)}
+.pad.hit,.pad:active{transform:scale(.96);background:color-mix(in srgb,var(--glow) 30%,#121218);box-shadow:0 0 0 1px var(--glow),0 0 36px -4px var(--glow)}
+.side{display:grid;gap:16px;align-content:start;min-width:0}
+.screen{background:#050507;border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px}
+.screen .bpm{font-family:var(--f-display);font-weight:900;font-size:46px;line-height:1;font-variant-numeric:tabular-nums}
+.screen .bpm small{font-family:var(--f-mono);font-size:12px;font-weight:400;color:var(--muted);margin-left:8px;letter-spacing:.12em}
+.steps{display:grid;grid-template-columns:repeat(16,1fr);gap:3px}
+.steps i{height:10px;border-radius:2px;background:#22222b}
+.steps i.q{background:#33333e}
+.steps i.on{background:var(--ice);box-shadow:0 0 8px var(--ice)}
+input[type=range]{width:100%;accent-color:var(--ice)}
+.side label{display:grid;gap:6px}
+.side .btn{justify-content:center}
+.note{font-size:13px;color:var(--muted);margin:0}
+
+/* tracklist */
+.tracklist{display:grid;border-top:1px solid var(--line)}
+.track-row{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:20px;align-items:baseline;padding-block:26px;border-bottom:1px solid var(--line)}
+.track-row .side-n{font-family:var(--f-mono);font-size:14px;color:var(--ice)}
+.track-row h3{font-size:clamp(20px,2.6vw,30px);font-weight:800;margin-bottom:6px}
+.track-row p{margin:0;color:var(--muted);max-width:60ch}
+.track-row .len{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.formats{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+
+/* videos */
+.videos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.videos.two{grid-template-columns:repeat(2,minmax(0,300px));margin-top:16px}
+.vcard{position:relative;margin:0;aspect-ratio:9/16;max-width:100%;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#000}
+.vcard video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+.vtag{position:absolute;top:14px;left:14px;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;pointer-events:none}
+.reel-card{position:relative;display:block;aspect-ratio:9/16;max-width:100%;width:100%;border-radius:22px;overflow:hidden;border:1px solid var(--line);text-decoration:none;box-shadow:0 30px 80px -30px rgba(143,233,255,.35)}
+.reel-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reel-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.6))}
+.play{position:absolute;z-index:1;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--chrome);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(255,255,255,.12);transition:transform .2s}
+.reel-card:hover .play{transform:scale(1.08)}
+.play::before{content:"";margin-left:6px;border-left:24px solid #0a0a0d;border-top:15px solid transparent;border-bottom:15px solid transparent}
+.reel-card .tagline{position:absolute;z-index:1;left:16px;right:16px;bottom:16px;display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.reel-card .tagline svg{width:18px;height:18px}
+
+/* gallery */
+.gallery{columns:4 220px;column-gap:14px}
+.shot{position:relative;margin:0 0 14px;break-inside:avoid;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.shot .zoom{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto;transition:transform .5s ease,filter .5s ease;filter:saturate(.92)}
+.shot:hover img{transform:scale(1.035);filter:saturate(1.1)}
+.shot .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.78));font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#e6e6ec;pointer-events:none}
+
+/* brands */
+.brands{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
+.brand-card{position:relative;display:grid;gap:4px;padding:0 0 16px;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.brand-card .zoom{display:block;padding:0;border:0;background:none;cursor:zoom-in;margin-bottom:10px}
+.brand-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+.brand-card .mono,.brand-card h3{padding-inline:16px}
+.brand-card h3{font-size:18px;font-weight:800}
+
+/* socials */
+.socials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.social{display:grid;gap:18px;padding:24px;border-radius:20px;border:1px solid var(--line);background:var(--panel);text-decoration:none;transition:transform .2s,border-color .2s}
+.social:hover{transform:translateY(-4px);border-color:var(--muted)}
+.social svg{width:30px;height:30px}
+.social .h{font-family:var(--f-display);font-weight:800;font-size:20px}
+.social .u{font-family:var(--f-mono);font-size:13px;color:var(--muted);word-break:break-all}
+.social .go{font-weight:800;font-size:14px;color:var(--ice)}
+
+/* booking */
+.booking{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(90% 120% at 100% 0%,rgba(143,233,255,.14),transparent 55%),radial-gradient(80% 120% at 0% 100%,rgba(181,140,255,.14),transparent 55%),var(--panel-2);padding:clamp(28px,6vw,64px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:center}
+.booking h2{font-size:clamp(32px,5.4vw,64px)}
+.booking p{color:var(--muted);font-size:17px;max-width:44ch;margin:14px 0 0}
+.numbox{display:grid;gap:14px;justify-items:start}
+.num{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,3vw,32px);user-select:all}
+
+/* material */
+.mat-hero{padding-block:clamp(40px,6vw,72px) 24px}
+.mat-hero h1{font-size:clamp(40px,7vw,84px);font-weight:900;letter-spacing:-.02em}
+.mat-hero p{color:var(--muted);font-size:17px;max-width:58ch;margin:16px 0 0}
+.mat-bar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 59px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.mat-bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-block:12px}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filter{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer}
+.filter[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.mat-bar .btn{margin-left:auto}
+.mgroup{padding-block:28px 8px;scroll-margin-top:130px}
+.mgroup h2{font-size:clamp(22px,3vw,30px);font-weight:800;display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.mgroup h2 .mono{font-weight:400}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.mcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel);min-width:0}
+.mthumb{position:relative;display:block;padding:0;border:0;background:#000;cursor:zoom-in;aspect-ratio:4/5;max-width:100%}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.mthumb:hover img{transform:scale(1.04)}
+.mthumb .mplay{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.4);display:grid;place-items:center}
+.mthumb .mplay::before{content:"";margin-left:4px;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.mthumb .dur{position:absolute;right:10px;bottom:10px;font-family:var(--f-mono);font-size:11px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,.65);color:#fff}
+.minfo{display:grid;gap:10px;padding:12px 14px 14px}
+.minfo h3{font-family:var(--f-body);font-size:15px;font-weight:800;line-height:1.3}
+.minfo .mono{font-size:11px;letter-spacing:.06em}
+.minfo .btn{justify-content:center;width:100%}
+.mcard[hidden],.mgroup[hidden]{display:none}
+
+/* lightbox */
+.lightbox{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;color:#fff}
+.lightbox::backdrop{background:rgba(3,3,5,.94);backdrop-filter:blur(6px)}
+.lb-inner{position:relative;width:100%;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:calc(env(safe-area-inset-top,0px) + 12px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 16px) max(16px,env(safe-area-inset-left,0px))}
+.lb-top{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.lb-count{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;color:#c9c9d3}
+.lb-actions{display:flex;gap:8px}
+.lb-stage{display:grid;place-items:center;min-height:0;padding-block:12px}
+.lb-stage img,.lb-stage video{max-width:100%;max-height:100%;border-radius:12px;display:block;object-fit:contain}
+.lb-cap{text-align:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#e6e6ec;margin:0}
+.lb-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:20px}
+.lb-btn:hover{background:#fff;color:#0a0a0d}
+.lb-btn svg{width:19px;height:19px}
+.lb-nav{position:absolute;top:50%;margin-top:-22px}
+.lb-prev{left:max(12px,env(safe-area-inset-left,0px))}
+.lb-next{right:max(12px,env(safe-area-inset-right,0px))}
+
+/* toast */
+.toast{position:fixed;z-index:60;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--fg);color:var(--bg);font-weight:800;font-size:14px;padding:12px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:.25s;max-width:calc(100vw - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+footer{padding-block:40px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .deck{width:min(380px,100%)}
+  .mixer{grid-template-columns:1fr}
+  .booking{grid-template-columns:1fr}
+  .socials{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .about figure{max-width:440px}
+  .brands{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .videos{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .nav .wrap{flex-wrap:wrap;row-gap:8px;padding-block:10px 8px}
+  .nav nav{order:3;width:100%;margin-left:0;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .nav nav::-webkit-scrollbar{display:none}
+  .nav .btn{margin-left:auto}
+  .mat-bar{top:calc(env(safe-area-inset-top,0px) + 101px)}
+  .mat-bar .btn{margin-left:0;width:100%;justify-content:center}
+}
+@media (max-width:640px){
+  .gallery{columns:2;column-gap:10px}
+  .shot{margin-bottom:10px;border-radius:12px}
+  .shot .cap{font-size:10px;padding:30px 10px 9px}
+  .dlb{width:38px;height:38px;top:8px;right:8px}
+  .track-row{grid-template-columns:44px minmax(0,1fr)}
+  .track-row .len{display:none}
+  .pads{gap:8px}
+  .pad{padding:9px;border-radius:12px}
+  .pad kbd{display:none}
+  .videos,.videos.two{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .vcard,.reel-card{border-radius:14px}
+  .mgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .minfo{padding:10px}
+  .minfo .btn{padding:9px 10px}
+  .lb-nav{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 56px);margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 2.9h10A4.1 4.1 0 0 1 21.1 7v10a4.1 4.1 0 0 1-4.1 4.1H7A4.1 4.1 0 0 1 2.9 17V7A4.1 4.1 0 0 1 7 2.9Z"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 2h-3.3v13.3a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.1a6.3 6.3 0 1 0 5.3 6.2V8.6a7.7 7.7 0 0 0 4.5 1.4V6.7a4.5 4.5 0 0 1-4.5-4.5Z"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5v12m0 0-5-5m5 5 5-5M4.5 20h15"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5v-9Zm0 0L12 12m0 0 8.5-4.5M12 12v9"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="data:image/jpeg;base64,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" alt="">LARASELINE</a>
+    <nav aria-label="Seções">
+      <a href="#sobre">Sobre</a>
+      <a href="#som">Som</a>
+      <a href="#aovivo">Ao vivo</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#marcas">Marcas</a>
+      <a href="#contato">Contato</a>
+      <a href="#material" class="tab" id="tabMaterial"><svg><use href="#i-box"/></svg>Material</a>
+    </nav>
+    <a class="btn btn-ghost btn-sm" href="https://ig.me/m/laraselinee" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Contratar</a>
+  </div>
+</header>
+
+<main id="site">
+  <section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <canvas id="viz" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="tag">
+          <span class="chip"><span class="dot"></span>Agenda aberta</span>
+          <span class="chip">Electronic Music Artist</span>
+        </div>
+        <h1 class="chrome">LARA<br>SELINE</h1>
+        <p class="lede">Cada pista tem uma história. <b>Lara Seline</b> cria a trilha sonora. DJ e produtora brasileira de Melodic House, Indie Dance, House e Techno.</p>
+        <div class="cta">
+          <a class="btn btn-chrome" href="https://www.instagram.com/laraselinee/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Seguir @laraselinee</a>
+          <a class="btn btn-ghost" href="#material"><svg><use href="#i-box"/></svg>Material de imprensa</a>
+        </div>
+      </div>
+      <div class="deck" aria-label="Toca-discos com a logo da Laraseline. Arraste o disco para fazer scratch.">
+        <div class="platter" id="platter"><img src="data:image/jpeg;base64,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" alt="Logo Laraseline"></div>
+        <div class="arm"></div>
+        <div class="readout"><span>RPM <b id="rpm">33</b></span><span>PITCH <b id="pitch">+0.0%</b></span></div>
+        <div class="hint">Arraste o disco</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>MELODIC HOUSE</span><span class="hl">INDIE DANCE</span><span>HOUSE</span><span class="hl">TECHNO</span><span>LIVE THE MUSIC</span><span class="hl">LARASELINE</span>
+      <span>MELODIC HOUSE</span><span class="hl">INDIE DANCE</span><span>HOUSE</span><span class="hl">TECHNO</span><span>LIVE THE MUSIC</span><span class="hl">LARASELINE</span>
+    </div>
+  </div>
+
+  <section id="sobre">
+    <div class="wrap">
+      <div class="about">
+        <figure>
+          <img src="img/estudio-retrato.jpg" alt="Retrato de Lara Seline em fundo preto, com a tatuagem de leão no braço" loading="lazy">
+          <button class="dlb" type="button" data-dl="estudio-retrato" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button>
+          <blockquote>Música é conexão. É energia. É sobre <em>sentir junto.</em></blockquote>
+        </figure>
+        <div class="about-text">
+          <div class="head" style="margin-bottom:24px">
+            <span class="mono">Sobre · Electronic Music Artist</span>
+            <h2>Lara <span class="chrome">Seline</span></h2>
+          </div>
+          <p class="lead">DJ e produtora brasileira que transforma música em experiência.</p>
+          <p>A música eletrônica sempre foi mais do que uma paixão para Lara. É a linguagem com que ela transforma energia, emoção e conexão em experiências inesquecíveis. Sua identidade artística é marcada por elegância, intensidade e autenticidade, com performances que unem técnica refinada, curadoria musical e uma leitura de pista sensível.</p>
+          <p>Cada apresentação é pensada como uma experiência exclusiva. Mais do que executar uma sequência de músicas, Lara constrói uma narrativa sonora que conduz o público por diferentes emoções, do primeiro ao último minuto.</p>
+          <p>No palco, transmite o que vive fora dele: alegria, autenticidade e paixão pela música. Sua energia é contagiante e seu sorriso aproxima as pessoas. Em constante evolução, Lara segue expandindo a carreira com uma visão clara: emocionar, conectar pessoas e deixar uma marca em cada pista por onde passar.</p>
+          <p class="sign">Mais do que tocar, Lara conta histórias. Histórias que ficam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="som" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="mono">Identidade sonora</span>
+        <h2>Uma jornada que começa <span class="chrome">sutil e hipnótica</span> e termina intensa</h2>
+        <p>Inspirada pela atmosfera dos maiores festivais do mundo, como o Tomorrowland, Lara criou um estilo que equilibra sofisticação, groove e intensidade. Melodias envolventes, linhas de baixo marcantes e batidas hipnóticas que evoluem de forma orgânica.</p>
+      </div>
+      <div class="tracklist">
+        <div class="track-row"><span class="side-n">A1</span><div><h3>Melodic House</h3><p>Melodias envolventes e atmosferas emocionais que abrem a jornada.</p></div><span class="len">Abertura</span></div>
+        <div class="track-row"><span class="side-n">A2</span><div><h3>Indie Dance</h3><p>Groove, sintetizadores e uma pegada elegante que mantém a pista viva.</p></div><span class="len">Groove</span></div>
+        <div class="track-row"><span class="side-n">B1</span><div><h3>House</h3><p>Linhas de baixo marcantes e energia contagiante para dançar junto.</p></div><span class="len">Pista</span></div>
+        <div class="track-row"><span class="side-n">B2</span><div><h3>Techno</h3><p>Batidas hipnóticas e intensidade para os picos da noite.</p></div><span class="len">Pico</span></div>
+      </div>
+      <div class="formats" aria-label="Formatos de evento">
+        <span class="chip">Clubs</span><span class="chip">Beach clubs</span><span class="chip">Eventos corporativos</span><span class="chip">Celebrações privadas</span><span class="chip">Festivais</span>
+      </div>
+      <p class="note" style="margin-top:12px;max-width:60ch">Cada set é montado sob medida, respeitando a proposta do evento e o público.</p>
+    </div>
+  </section>
+
+  <section id="aovivo" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="mono">Vídeos</span>
+        <h2>Ao vivo <span class="chrome">na pista</span></h2>
+        <p>Aperte o play e aumente o volume. O botão no canto de cada vídeo baixa o arquivo.</p>
+      </div>
+      <div class="videos" id="videos">
+        <figure class="vcard"><video src="vid/set1.mp4" poster="vid/set1_poster.jpg" controls playsinline preload="metadata" aria-label="Lara Seline tocando em um rooftop à noite"></video><figcaption class="vtag">Set no rooftop</figcaption><button class="dlb" type="button" data-dl="set1" aria-label="Baixar vídeo"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="vcard"><video src="vid/set2.mp4" poster="vid/set2_poster.jpg" controls playsinline preload="metadata" aria-label="Pista cheia durante set da Lara Seline"></video><figcaption class="vtag">Pista cheia</figcaption><button class="dlb" type="button" data-dl="set2" aria-label="Baixar vídeo"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="vcard"><video src="vid/show01.mp4" poster="vid/show01_poster.jpg" controls playsinline preload="metadata" aria-label="Lara Seline com os braços para cima na cabine, com fumaça no palco"></video><figcaption class="vtag">Show</figcaption><button class="dlb" type="button" data-dl="show01" aria-label="Baixar vídeo"><svg><use href="#i-dl"/></svg></button></figure>
+        <a class="reel-card" href="https://www.instagram.com/reel/DRvEPdDATZz/" target="_blank" rel="noopener" aria-label="Assistir o reel da Lara Seline no Instagram">
+          <img src="img/loud.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+          <span class="tagline"><svg><use href="#i-ig"/></svg>Reel · @laraselinee</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="deck" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="mono">Deck interativo</span>
+        <h2>Solta o <span class="chrome">beat</span></h2>
+        <p>Toque nos pads ou use o teclado. Ligue o loop e monte sua própria virada por cima.</p>
+      </div>
+      <div class="mixer">
+        <div class="pads" id="pads">
+          <button class="pad" data-s="kick" data-k="1" data-c="ice">KICK<kbd>1</kbd></button>
+          <button class="pad" data-s="clap" data-k="2" data-c="ice">CLAP<kbd>2</kbd></button>
+          <button class="pad" data-s="hat" data-k="3" data-c="ice">HI-HAT<kbd>3</kbd></button>
+          <button class="pad" data-s="snare" data-k="4" data-c="ice">SNARE<kbd>4</kbd></button>
+          <button class="pad" data-s="bass" data-k="5" data-c="uv">BASS<kbd>5</kbd></button>
+          <button class="pad" data-s="laser" data-k="6" data-c="uv">LASER<kbd>6</kbd></button>
+          <button class="pad" data-s="horn" data-k="7" data-c="uv">HORN<kbd>7</kbd></button>
+          <button class="pad" data-s="riser" data-k="8" data-c="uv">RISER<kbd>8</kbd></button>
+        </div>
+        <div class="side">
+          <div class="screen">
+            <span class="mono">Tempo</span>
+            <div class="bpm"><span id="bpmv">124</span><small>BPM</small></div>
+            <div class="steps" id="steps"></div>
+          </div>
+          <label for="bpm"><span class="mono">Ajustar BPM</span><input id="bpm" type="range" min="100" max="150" value="124"></label>
+          <button class="btn btn-chrome" id="play" type="button">▶ Ligar loop 4/4</button>
+          <p class="note">Som gerado no navegador. Aumente o volume.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fotos" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="mono">Galeria</span>
+        <h2>Na cabine</h2>
+        <p>Toque numa foto para ampliar. O botão no canto baixa a foto em alta. Todo o material está na aba <a href="#material">Material</a>.</p>
+      </div>
+      <div class="gallery" id="gallery" data-ctx>
+        <figure class="shot"><button class="zoom" type="button" data-open="estudio-oculos" aria-label="Ampliar: Óculos e globo espelhado"><img src="img/estudio-oculos.jpg" alt="Lara Seline de óculos escuros e brincos de globo espelhado em fundo vermelho" loading="lazy"></button><figcaption class="cap">Óculos e globo espelhado</figcaption><button class="dlb" type="button" data-dl="estudio-oculos" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="discoteca" aria-label="Ampliar: ¿Dónde está la discoteca?"><img src="img/discoteca.jpg" alt="Lara Seline de óculos escuros na Pioneer DJ, luz azul" loading="lazy"></button><figcaption class="cap">¿Dónde está la discoteca?</figcaption><button class="dlb" type="button" data-dl="discoteca" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="show-braco" aria-label="Ampliar: Braço para cima"><img src="img/show-braco.jpg" alt="Lara Seline com o braço para cima tocando nos CDJs" loading="lazy"></button><figcaption class="cap">Braço para cima</figcaption><button class="dlb" type="button" data-dl="show-braco" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="loud" aria-label="Ampliar: Com @loud.oficial_"><img src="img/loud.jpg" alt="Lara Seline mixando nos CDJs Pioneer" loading="lazy"></button><figcaption class="cap">Com @loud.oficial_</figcaption><button class="dlb" type="button" data-dl="loud" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="estudio-batom" aria-label="Ampliar: Batom vermelho"><img src="img/estudio-batom.jpg" alt="Retrato de Lara Seline de batom vermelho em fundo vermelho" loading="lazy"></button><figcaption class="cap">Batom vermelho</figcaption><button class="dlb" type="button" data-dl="estudio-batom" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="lousa" aria-label="Ampliar: Summer Hits"><img src="img/lousa.jpg" alt="Lousa escrita Summer Hits DJ Laraseline" loading="lazy"></button><figcaption class="cap">Summer Hits</figcaption><button class="dlb" type="button" data-dl="lousa" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="show-azul" aria-label="Ampliar: Luz azul"><img src="img/show-azul.jpg" alt="Lara Seline mixando sob luz azul e roxa" loading="lazy"></button><figcaption class="cap">Luz azul</figcaption><button class="dlb" type="button" data-dl="show-azul" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="ensaio" aria-label="Ampliar: TBT desse ensaio"><img src="img/ensaio.jpg" alt="Lara Seline em ensaio com luz vermelha" loading="lazy"></button><figcaption class="cap">TBT desse ensaio</figcaption><button class="dlb" type="button" data-dl="ensaio" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="estudio-rabo" aria-label="Ampliar: Perfil em vermelho"><img src="img/estudio-rabo.jpg" alt="Lara Seline de perfil com rabo de cavalo em fundo vermelho" loading="lazy"></button><figcaption class="cap">Perfil em vermelho</figcaption><button class="dlb" type="button" data-dl="estudio-rabo" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="monster" aria-label="Ampliar: Na controladora"><img src="img/monster.jpg" alt="Lara Seline tocando com luzes neon" loading="lazy"></button><figcaption class="cap">Na controladora</figcaption><button class="dlb" type="button" data-dl="monster" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="show-branco" aria-label="Ampliar: Jaqueta branca"><img src="img/show-branco.jpg" alt="Lara Seline de jaqueta branca tocando no mixer" loading="lazy"></button><figcaption class="cap">Jaqueta branca</figcaption><button class="dlb" type="button" data-dl="show-branco" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="campari" aria-label="Ampliar: Friday night summer vibes"><img src="img/campari.jpg" alt="Lara Seline de fone tocando com rekordbox" loading="lazy"></button><figcaption class="cap">Friday night summer vibes</figcaption><button class="dlb" type="button" data-dl="campari" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="estudio-banqueta" aria-label="Ampliar: Na banqueta"><img src="img/estudio-banqueta.jpg" alt="Lara Seline sentada em uma banqueta em estúdio" loading="lazy"></button><figcaption class="cap">Na banqueta</figcaption><button class="dlb" type="button" data-dl="estudio-banqueta" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="stb" aria-label="Ampliar: Mais um ano de STB"><img src="img/stb.jpg" alt="Lara Seline em frente aos painéis do festival Só Track Boa" loading="lazy"></button><figcaption class="cap">Mais um ano de STB</figcaption><button class="dlb" type="button" data-dl="stb" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="show-mixer" aria-label="Ampliar: No mixer"><img src="img/show-mixer.jpg" alt="Lara Seline olhando para a câmera enquanto mixa" loading="lazy"></button><figcaption class="cap">No mixer</figcaption><button class="dlb" type="button" data-dl="show-mixer" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="shot"><button class="zoom" type="button" data-open="rooftop" aria-label="Ampliar: Rooftop night"><img src="img/rooftop.jpg" alt="Lara Seline de perfil em um rooftop à noite" loading="lazy"></button><figcaption class="cap">Rooftop night</figcaption><button class="dlb" type="button" data-dl="rooftop" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="marcas" style="padding-top:0">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:0">
+        <span class="mono">Eventos & marcas</span>
+        <h2>Trilha sonora sob medida para marcas</h2>
+        <p>Versátil, Lara adapta a identidade musical sem perder a essência, do lançamento de moda ao autódromo.</p>
+      </div>
+      <div class="brands" data-ctx>
+        <div class="brand-card"><button class="zoom" type="button" data-open="corp-animale" aria-label="Ampliar: Animale SP"><img src="img/corp-animale.jpg" alt="Lara Seline tocando dentro da loja Animale SP" loading="lazy"></button><button class="dlb" type="button" data-dl="corp-animale" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button><span class="mono">Moda</span><h3>Animale SP</h3></div>
+        <div class="brand-card"><button class="zoom" type="button" data-open="corp-escova" aria-label="Ampliar: Escova Express"><img src="img/corp-escova.jpg" alt="Lara Seline tocando no evento da Escova Express" loading="lazy"></button><button class="dlb" type="button" data-dl="corp-escova" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button><span class="mono">Beleza</span><h3>Escova Express</h3></div>
+        <div class="brand-card"><button class="zoom" type="button" data-open="corp-crossfit" aria-label="Ampliar: Evento CrossFit"><img src="img/corp-crossfit.jpg" alt="Montagem de fotos de Lara Seline tocando em evento de CrossFit" loading="lazy"></button><button class="dlb" type="button" data-dl="corp-crossfit" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button><span class="mono">Esporte</span><h3>Evento CrossFit</h3></div>
+        <div class="brand-card"><button class="zoom" type="button" data-open="corp-formulatruck" aria-label="Ampliar: Fórmula Truck SP"><img src="img/corp-formulatruck.jpg" alt="Lara Seline tocando na Fórmula Truck em Interlagos" loading="lazy"></button><button class="dlb" type="button" data-dl="corp-formulatruck" aria-label="Baixar foto"><svg><use href="#i-dl"/></svg></button><span class="mono">Interlagos</span><h3>Fórmula Truck SP</h3></div>
+      </div>
+      <div class="videos two">
+        <figure class="vcard"><video src="vid/truck.mp4" poster="vid/truck_poster.jpg" controls playsinline preload="metadata" aria-label="Vídeo da Fórmula Truck em Interlagos"></video><figcaption class="vtag">Fórmula Truck</figcaption><button class="dlb" type="button" data-dl="truck" aria-label="Baixar vídeo"><svg><use href="#i-dl"/></svg></button></figure>
+        <figure class="vcard"><video src="vid/truck-drone.mp4" poster="vid/truck-drone_poster.jpg" controls playsinline preload="metadata" aria-label="Imagens de drone do Autódromo de Interlagos"></video><figcaption class="vtag">Interlagos · drone</figcaption><button class="dlb" type="button" data-dl="truck-drone" aria-label="Baixar vídeo"><svg><use href="#i-dl"/></svg></button></figure>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="mono">Redes</span>
+        <h2>Segue lá</h2>
+      </div>
+      <div class="socials">
+        <a class="social" href="https://www.instagram.com/laraselinee/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg><div><div class="h">Instagram</div><div class="u">@laraselinee</div></div><span class="go">Abrir perfil →</span></a>
+        <a class="social" href="https://www.tiktok.com/@larovski0" target="_blank" rel="noopener"><svg><use href="#i-tt"/></svg><div><div class="h">TikTok</div><div class="u">@larovski0</div></div><span class="go">Ver vídeos →</span></a>
+        <a class="social" href="#material"><svg><use href="#i-box"/></svg><div><div class="h">Material</div><div class="u">22 fotos · 5 vídeos</div></div><span class="go">Baixar →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" style="padding-top:0">
+    <div class="wrap">
+      <div class="booking">
+        <div>
+          <span class="mono">Booking</span>
+          <h2 style="margin-top:12px">Leve a <span class="chrome">Lara Seline</span> para o seu evento</h2>
+          <p>Clubs, beach clubs, corporativos, festas exclusivas e festivais. Mande uma mensagem direta no Instagram com a data, a cidade e o tipo de evento.</p>
+        </div>
+        <div class="numbox">
+          <a class="btn btn-chrome" href="https://ig.me/m/laraselinee" target="_blank" rel="noopener" style="font-size:17px;padding:18px 26px"><svg><use href="#i-ig"/></svg>Mandar DM no Instagram</a>
+          <span class="mono">Instagram</span>
+          <span class="num">@laraselinee</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="material" hidden>
+  <div class="wrap mat-hero">
+    <span class="mono">Press kit 2026 · Material</span>
+    <h1 class="chrome" style="margin-top:12px">Material</h1>
+    <p>Todas as fotos e vídeos da Lara Seline para imprensa, contratantes e divulgação. Toque para ver em tela cheia e use o botão Baixar em cada item, ou baixe tudo de uma vez em um arquivo .zip.</p>
+  </div>
+  <div class="mat-bar">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filtrar material">
+        <button class="filter" type="button" data-f="all" aria-pressed="true">Tudo · 27</button>
+        <button class="filter" type="button" data-f="foto" aria-pressed="false">Fotos · 22</button>
+        <button class="filter" type="button" data-f="video" aria-pressed="false">Vídeos · 5</button>
+      </div>
+      <button class="btn btn-chrome btn-sm" type="button" id="zipAll"><svg><use href="#i-box"/></svg><span>Baixar tudo (.zip · 15 MB)</span></button>
+    </div>
+  </div>
+  <div class="wrap" id="matList" data-ctx>
+    <section class="mgroup" id="m-ensaio" aria-label="Ensaio · Press kit 2026">
+      <h2>Ensaio · Press kit 2026 <span class="mono">5</span></h2>
+      <div class="mgrid">
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="estudio-oculos" aria-label="Ver: Óculos e globo espelhado"><img src="img/estudio-oculos.jpg" alt="Lara Seline de óculos escuros e brincos de globo espelhado em fundo vermelho" loading="lazy"></button><div class="minfo"><div><h3>Óculos e globo espelhado</h3><p class="mono" style="margin:4px 0 0">JPG · 1333×2000 · 249 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="estudio-oculos"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="estudio-batom" aria-label="Ver: Batom vermelho"><img src="img/estudio-batom.jpg" alt="Retrato de Lara Seline de batom vermelho em fundo vermelho" loading="lazy"></button><div class="minfo"><div><h3>Batom vermelho</h3><p class="mono" style="margin:4px 0 0">JPG · 1333×2000 · 260 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="estudio-batom"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="estudio-rabo" aria-label="Ver: Perfil em vermelho"><img src="img/estudio-rabo.jpg" alt="Lara Seline de perfil com rabo de cavalo em fundo vermelho" loading="lazy"></button><div class="minfo"><div><h3>Perfil em vermelho</h3><p class="mono" style="margin:4px 0 0">JPG · 1333×2000 · 155 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="estudio-rabo"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="estudio-retrato" aria-label="Ver: Retrato em preto"><img src="img/estudio-retrato.jpg" alt="Retrato de Lara Seline em fundo preto, com a tatuagem de leão no braço" loading="lazy"></button><div class="minfo"><div><h3>Retrato em preto</h3><p class="mono" style="margin:4px 0 0">JPG · 1333×2000 · 252 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="estudio-retrato"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="estudio-banqueta" aria-label="Ver: Na banqueta"><img src="img/estudio-banqueta.jpg" alt="Lara Seline sentada em uma banqueta em estúdio" loading="lazy"></button><div class="minfo"><div><h3>Na banqueta</h3><p class="mono" style="margin:4px 0 0">JPG · 1333×2000 · 170 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="estudio-banqueta"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      </div>
+    </section>
+    <section class="mgroup" id="m-aovivo" aria-label="Ao vivo">
+      <h2>Ao vivo <span class="mono">5</span></h2>
+      <div class="mgrid">
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="show-palco" aria-label="Ver: Palco com fumaça"><img src="img/show-palco.jpg" alt="Lara Seline na cabine com jatos de fumaça e globo espelhado sobre a pista" loading="lazy"></button><div class="minfo"><div><h3>Palco com fumaça</h3><p class="mono" style="margin:4px 0 0">JPG · 2000×1333 · 367 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="show-palco"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="show-braco" aria-label="Ver: Braço para cima"><img src="img/show-braco.jpg" alt="Lara Seline com o braço para cima tocando nos CDJs" loading="lazy"></button><div class="minfo"><div><h3>Braço para cima</h3><p class="mono" style="margin:4px 0 0">JPG · 2000×1333 · 236 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="show-braco"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="show-azul" aria-label="Ver: Luz azul"><img src="img/show-azul.jpg" alt="Lara Seline mixando sob luz azul e roxa" loading="lazy"></button><div class="minfo"><div><h3>Luz azul</h3><p class="mono" style="margin:4px 0 0">JPG · 1156×2000 · 201 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="show-azul"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="show-branco" aria-label="Ver: Jaqueta branca"><img src="img/show-branco.jpg" alt="Lara Seline de jaqueta branca tocando no mixer" loading="lazy"></button><div class="minfo"><div><h3>Jaqueta branca</h3><p class="mono" style="margin:4px 0 0">JPG · 2000×1333 · 388 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="show-branco"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="show-mixer" aria-label="Ver: No mixer"><img src="img/show-mixer.jpg" alt="Lara Seline olhando para a câmera enquanto mixa" loading="lazy"></button><div class="minfo"><div><h3>No mixer</h3><p class="mono" style="margin:4px 0 0">JPG · 1125×2000 · 448 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="show-mixer"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      </div>
+    </section>
+    <section class="mgroup" id="m-instagram" aria-label="Instagram">
+      <h2>Instagram <span class="mono">8</span></h2>
+      <div class="mgrid">
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="discoteca" aria-label="Ver: ¿Dónde está la discoteca?"><img src="img/discoteca.jpg" alt="Lara Seline de óculos escuros na Pioneer DJ, luz azul" loading="lazy"></button><div class="minfo"><div><h3>¿Dónde está la discoteca?</h3><p class="mono" style="margin:4px 0 0">JPG · 1080×1430 · 77 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="discoteca"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="loud" aria-label="Ver: Com @loud.oficial_"><img src="img/loud.jpg" alt="Lara Seline mixando nos CDJs Pioneer" loading="lazy"></button><div class="minfo"><div><h3>Com @loud.oficial_</h3><p class="mono" style="margin:4px 0 0">JPG · 1080×1529 · 89 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="loud"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="ensaio" aria-label="Ver: TBT desse ensaio"><img src="img/ensaio.jpg" alt="Lara Seline em ensaio com luz vermelha" loading="lazy"></button><div class="minfo"><div><h3>TBT desse ensaio</h3><p class="mono" style="margin:4px 0 0">JPG · 1080×1448 · 52 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="ensaio"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="lousa" aria-label="Ver: Summer Hits"><img src="img/lousa.jpg" alt="Lousa escrita Summer Hits DJ Laraseline" loading="lazy"></button><div class="minfo"><div><h3>Summer Hits</h3><p class="mono" style="margin:4px 0 0">JPG · 1080×1453 · 124 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="lousa"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="monster" aria-label="Ver: Na controladora"><img src="img/monster.jpg" alt="Lara Seline tocando com luzes neon" loading="lazy"></button><div class="minfo"><div><h3>Na controladora</h3><p class="mono" style="margin:4px 0 0">JPG · 1080×1470 · 189 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="monster"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="campari" aria-label="Ver: Friday night summer vibes"><img src="img/campari.jpg" alt="Lara Seline de fone tocando com rekordbox" loading="lazy"></button><div class="minfo"><div><h3>Friday night summer vibes</h3><p class="mono" style="margin:4px 0 0">JPG · 1080×1455 · 119 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="campari"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="stb" aria-label="Ver: Mais um ano de STB"><img src="img/stb.jpg" alt="Lara Seline em frente aos painéis do festival Só Track Boa" loading="lazy"></button><div class="minfo"><div><h3>Mais um ano de STB</h3><p class="mono" style="margin:4px 0 0">JPG · 1080×1467 · 242 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="stb"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="rooftop" aria-label="Ver: Rooftop night"><img src="img/rooftop.jpg" alt="Lara Seline de perfil em um rooftop à noite" loading="lazy"></button><div class="minfo"><div><h3>Rooftop night</h3><p class="mono" style="margin:4px 0 0">JPG · 1080×1285 · 168 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="rooftop"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      </div>
+    </section>
+    <section class="mgroup" id="m-marcas" aria-label="Marcas &amp; eventos">
+      <h2>Marcas &amp; eventos <span class="mono">4</span></h2>
+      <div class="mgrid">
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="corp-animale" aria-label="Ver: Animale SP"><img src="img/corp-animale.jpg" alt="Lara Seline tocando dentro da loja Animale SP" loading="lazy"></button><div class="minfo"><div><h3>Animale SP</h3><p class="mono" style="margin:4px 0 0">JPG · 568×900 · 55 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="corp-animale"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="corp-escova" aria-label="Ver: Escova Express"><img src="img/corp-escova.jpg" alt="Lara Seline tocando no evento da Escova Express" loading="lazy"></button><div class="minfo"><div><h3>Escova Express</h3><p class="mono" style="margin:4px 0 0">JPG · 511×900 · 46 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="corp-escova"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="corp-crossfit" aria-label="Ver: Evento CrossFit"><img src="img/corp-crossfit.jpg" alt="Montagem de fotos de Lara Seline tocando em evento de CrossFit" loading="lazy"></button><div class="minfo"><div><h3>Evento CrossFit</h3><p class="mono" style="margin:4px 0 0">JPG · 514×900 · 73 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="corp-crossfit"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="foto"><button class="mthumb" type="button" data-open="corp-formulatruck" aria-label="Ver: Fórmula Truck SP"><img src="img/corp-formulatruck.jpg" alt="Lara Seline tocando na Fórmula Truck em Interlagos" loading="lazy"></button><div class="minfo"><div><h3>Fórmula Truck SP</h3><p class="mono" style="margin:4px 0 0">JPG · 539×900 · 57 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="corp-formulatruck"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      </div>
+    </section>
+    <section class="mgroup" id="m-videos" aria-label="Vídeos">
+      <h2>Vídeos <span class="mono">5</span></h2>
+      <div class="mgrid">
+      <article class="mcard" data-kind="video"><button class="mthumb" type="button" data-open="set1" aria-label="Ver: Set no rooftop"><img src="vid/set1_poster.jpg" alt="Lara Seline tocando em um rooftop à noite" loading="lazy"><span class="mplay"></span><span class="dur">0:21</span></button><div class="minfo"><div><h3>Set no rooftop</h3><p class="mono" style="margin:4px 0 0">MP4 · 0:21 · 2.0 MB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="set1"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="video"><button class="mthumb" type="button" data-open="set2" aria-label="Ver: Pista cheia"><img src="vid/set2_poster.jpg" alt="Pista cheia durante set da Lara Seline" loading="lazy"><span class="mplay"></span><span class="dur">0:17</span></button><div class="minfo"><div><h3>Pista cheia</h3><p class="mono" style="margin:4px 0 0">MP4 · 0:17 · 3.5 MB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="set2"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="video"><button class="mthumb" type="button" data-open="show01" aria-label="Ver: Show"><img src="vid/show01_poster.jpg" alt="Lara Seline com os braços para cima na cabine, com fumaça no palco" loading="lazy"><span class="mplay"></span><span class="dur">0:17</span></button><div class="minfo"><div><h3>Show</h3><p class="mono" style="margin:4px 0 0">MP4 · 0:17 · 2.9 MB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="show01"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="video"><button class="mthumb" type="button" data-open="truck" aria-label="Ver: Fórmula Truck"><img src="vid/truck_poster.jpg" alt="Vídeo da Fórmula Truck em Interlagos" loading="lazy"><span class="mplay"></span><span class="dur">0:11</span></button><div class="minfo"><div><h3>Fórmula Truck</h3><p class="mono" style="margin:4px 0 0">MP4 · 0:11 · 1.3 MB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="truck"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      <article class="mcard" data-kind="video"><button class="mthumb" type="button" data-open="truck-drone" aria-label="Ver: Interlagos · drone"><img src="vid/truck-drone_poster.jpg" alt="Imagens de drone do Autódromo de Interlagos" loading="lazy"><span class="mplay"></span><span class="dur">0:16</span></button><div class="minfo"><div><h3>Interlagos · drone</h3><p class="mono" style="margin:4px 0 0">MP4 · 0:16 · 1.8 MB</p></div><button class="btn btn-ghost btn-sm" type="button" data-dl="truck-drone"><svg><use href="#i-dl"/></svg>Baixar</button></div></article>
+      </div>
+    </section>
+  </div>
+  <div class="wrap" style="padding-block:40px 24px">
+    <a class="btn btn-ghost" href="#top">← Voltar ao site</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="data:image/jpeg;base64,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" alt="">LARASELINE</a>
+    <span class="mono">Every track. Every moment. Every experience.</span>
+    <span class="mono">⌖ 24.0153° S, 46.9896° W</span>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Visualizar mídia">
+  <div class="lb-inner">
+    <div class="lb-top">
+      <span class="lb-count" id="lbCount"></span>
+      <div class="lb-actions">
+        <button class="lb-btn" type="button" id="lbDl" aria-label="Baixar"><svg><use href="#i-dl"/></svg></button>
+        <button class="lb-btn" type="button" id="lbClose" aria-label="Fechar">✕</button>
+      </div>
+    </div>
+    <div class="lb-stage" id="lbStage"></div>
+    <p class="lb-cap" id="lbCap"></p>
+    <button class="lb-btn lb-nav lb-prev" type="button" id="lbPrev" aria-label="Anterior">‹</button>
+    <button class="lb-btn lb-nav lb-next" type="button" id="lbNext" aria-label="Próxima">›</button>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const MEDIA = [{"id": "estudio-oculos", "type": "photo", "src": "img/estudio-oculos.jpg", "dl": "dl/estudio-oculos.jpg", "poster": "", "caption": "Óculos e globo espelhado", "alt": "Lara Seline de óculos escuros e brincos de globo espelhado em fundo vermelho", "filename": "laraseline-estudio-oculos.jpg", "folder": "01-ensaio"}, {"id": "estudio-batom", "type": "photo", "src": "img/estudio-batom.jpg", "dl": "dl/estudio-batom.jpg", "poster": "", "caption": "Batom vermelho", "alt": "Retrato de Lara Seline de batom vermelho em fundo vermelho", "filename": "laraseline-estudio-batom.jpg", "folder": "01-ensaio"}, {"id": "estudio-rabo", "type": "photo", "src": "img/estudio-rabo.jpg", "dl": "dl/estudio-rabo.jpg", "poster": "", "caption": "Perfil em vermelho", "alt": "Lara Seline de perfil com rabo de cavalo em fundo vermelho", "filename": "laraseline-estudio-rabo.jpg", "folder": "01-ensaio"}, {"id": "estudio-retrato", "type": "photo", "src": "img/estudio-retrato.jpg", "dl": "dl/estudio-retrato.jpg", "poster": "", "caption": "Retrato em preto", "alt": "Retrato de Lara Seline em fundo preto, com a tatuagem de leão no braço", "filename": "laraseline-estudio-retrato.jpg", "folder": "01-ensaio"}, {"id": "estudio-banqueta", "type": "photo", "src": "img/estudio-banqueta.jpg", "dl": "dl/estudio-banqueta.jpg", "poster": "", "caption": "Na banqueta", "alt": "Lara Seline sentada em uma banqueta em estúdio", "filename": "laraseline-estudio-banqueta.jpg", "folder": "01-ensaio"}, {"id": "show-palco", "type": "photo", "src": "img/show-palco.jpg", "dl": "dl/show-palco.jpg", "poster": "", "caption": "Palco com fumaça", "alt": "Lara Seline na cabine com jatos de fumaça e globo espelhado sobre a pista", "filename": "laraseline-show-palco.jpg", "folder": "02-aovivo"}, {"id": "show-braco", "type": "photo", "src": "img/show-braco.jpg", "dl": "dl/show-braco.jpg", "poster": "", "caption": "Braço para cima", "alt": "Lara Seline com o braço para cima tocando nos CDJs", "filename": "laraseline-show-braco.jpg", "folder": "02-aovivo"}, {"id": "show-azul", "type": "photo", "src": "img/show-azul.jpg", "dl": "dl/show-azul.jpg", "poster": "", "caption": "Luz azul", "alt": "Lara Seline mixando sob luz azul e roxa", "filename": "laraseline-show-azul.jpg", "folder": "02-aovivo"}, {"id": "show-branco", "type": "photo", "src": "img/show-branco.jpg", "dl": "dl/show-branco.jpg", "poster": "", "caption": "Jaqueta branca", "alt": "Lara Seline de jaqueta branca tocando no mixer", "filename": "laraseline-show-branco.jpg", "folder": "02-aovivo"}, {"id": "show-mixer", "type": "photo", "src": "img/show-mixer.jpg", "dl": "dl/show-mixer.jpg", "poster": "", "caption": "No mixer", "alt": "Lara Seline olhando para a câmera enquanto mixa", "filename": "laraseline-show-mixer.jpg", "folder": "02-aovivo"}, {"id": "discoteca", "type": "photo", "src": "img/discoteca.jpg", "dl": "img/discoteca.jpg", "poster": "", "caption": "¿Dónde está la discoteca?", "alt": "Lara Seline de óculos escuros na Pioneer DJ, luz azul", "filename": "laraseline-discoteca.jpg", "folder": "03-instagram"}, {"id": "loud", "type": "photo", "src": "img/loud.jpg", "dl": "img/loud.jpg", "poster": "", "caption": "Com @loud.oficial_", "alt": "Lara Seline mixando nos CDJs Pioneer", "filename": "laraseline-loud.jpg", "folder": "03-instagram"}, {"id": "ensaio", "type": "photo", "src": "img/ensaio.jpg", "dl": "img/ensaio.jpg", "poster": "", "caption": "TBT desse ensaio", "alt": "Lara Seline em ensaio com luz vermelha", "filename": "laraseline-ensaio.jpg", "folder": "03-instagram"}, {"id": "lousa", "type": "photo", "src": "img/lousa.jpg", "dl": "img/lousa.jpg", "poster": "", "caption": "Summer Hits", "alt": "Lousa escrita Summer Hits DJ Laraseline", "filename": "laraseline-lousa.jpg", "folder": "03-instagram"}, {"id": "monster", "type": "photo", "src": "img/monster.jpg", "dl": "img/monster.jpg", "poster": "", "caption": "Na controladora", "alt": "Lara Seline tocando com luzes neon", "filename": "laraseline-monster.jpg", "folder": "03-instagram"}, {"id": "campari", "type": "photo", "src": "img/campari.jpg", "dl": "img/campari.jpg", "poster": "", "caption": "Friday night summer vibes", "alt": "Lara Seline de fone tocando com rekordbox", "filename": "laraseline-campari.jpg", "folder": "03-instagram"}, {"id": "stb", "type": "photo", "src": "img/stb.jpg", "dl": "img/stb.jpg", "poster": "", "caption": "Mais um ano de STB", "alt": "Lara Seline em frente aos painéis do festival Só Track Boa", "filename": "laraseline-stb.jpg", "folder": "03-instagram"}, {"id": "rooftop", "type": "photo", "src": "img/rooftop.jpg", "dl": "img/rooftop.jpg", "poster": "", "caption": "Rooftop night", "alt": "Lara Seline de perfil em um rooftop à noite", "filename": "laraseline-rooftop.jpg", "folder": "03-instagram"}, {"id": "corp-animale", "type": "photo", "src": "img/corp-animale.jpg", "dl": "img/corp-animale.jpg", "poster": "", "caption": "Animale SP", "alt": "Lara Seline tocando dentro da loja Animale SP", "filename": "laraseline-corp-animale.jpg", "folder": "04-marcas"}, {"id": "corp-escova", "type": "photo", "src": "img/corp-escova.jpg", "dl": "img/corp-escova.jpg", "poster": "", "caption": "Escova Express", "alt": "Lara Seline tocando no evento da Escova Express", "filename": "laraseline-corp-escova.jpg", "folder": "04-marcas"}, {"id": "corp-crossfit", "type": "photo", "src": "img/corp-crossfit.jpg", "dl": "img/corp-crossfit.jpg", "poster": "", "caption": "Evento CrossFit", "alt": "Montagem de fotos de Lara Seline tocando em evento de CrossFit", "filename": "laraseline-corp-crossfit.jpg", "folder": "04-marcas"}, {"id": "corp-formulatruck", "type": "photo", "src": "img/corp-formulatruck.jpg", "dl": "img/corp-formulatruck.jpg", "poster": "", "caption": "Fórmula Truck SP", "alt": "Lara Seline tocando na Fórmula Truck em Interlagos", "filename": "laraseline-corp-formulatruck.jpg", "folder": "04-marcas"}, {"id": "set1", "type": "video", "src": "vid/set1.mp4", "dl": "vid/set1.mp4", "poster": "vid/set1_poster.jpg", "caption": "Set no rooftop", "alt": "Lara Seline tocando em um rooftop à noite", "filename": "laraseline-set1.mp4", "folder": "05-videos"}, {"id": "set2", "type": "video", "src": "vid/set2.mp4", "dl": "vid/set2.mp4", "poster": "vid/set2_poster.jpg", "caption": "Pista cheia", "alt": "Pista cheia durante set da Lara Seline", "filename": "laraseline-set2.mp4", "folder": "05-videos"}, {"id": "show01", "type": "video", "src": "vid/show01.mp4", "dl": "vid/show01.mp4", "poster": "vid/show01_poster.jpg", "caption": "Show", "alt": "Lara Seline com os braços para cima na cabine, com fumaça no palco", "filename": "laraseline-show01.mp4", "folder": "05-videos"}, {"id": "truck", "type": "video", "src": "vid/truck.mp4", "dl": "vid/truck.mp4", "poster": "vid/truck_poster.jpg", "caption": "Fórmula Truck", "alt": "Vídeo da Fórmula Truck em Interlagos", "filename": "laraseline-truck.mp4", "folder": "05-videos"}, {"id": "truck-drone", "type": "video", "src": "vid/truck-drone.mp4", "dl": "vid/truck-drone.mp4", "poster": "vid/truck-drone_poster.jpg", "caption": "Interlagos · drone", "alt": "Imagens de drone do Autódromo de Interlagos", "filename": "laraseline-truck-drone.mp4", "folder": "05-videos"}];
+(() => {
+  const byId = Object.fromEntries(MEDIA.map(m => [m.id, m]));
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---------- toast ----------
+  const toastEl = document.getElementById("toast");
+  let toastT;
+  function toast(msg, ms = 3200) {
+    toastEl.textContent = msg; toastEl.classList.add("show");
+    clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove("show"), ms);
+  }
+
+  // ---------- views: site / material ----------
+  const site = document.getElementById("site"), mat = document.getElementById("material"), tab = document.getElementById("tabMaterial");
+  function route() {
+    const h = location.hash.slice(1);
+    const showMat = h === "material";
+    site.hidden = showMat; mat.hidden = !showMat;
+    if (showMat) { tab.setAttribute("aria-current", "page"); scrollTo({ top: 0 }); }
+    else {
+      tab.removeAttribute("aria-current");
+      const el = h && document.getElementById(h);
+      if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }));
+    }
+  }
+  addEventListener("hashchange", route);
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a) return;
+    if (a.getAttribute("href") === location.hash) { e.preventDefault(); route(); }
+  });
+  // always open on the main site; Material only opens from its tab
+  if (location.hash) { try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} }
+  route();
+
+  // ---------- downloads ----------
+  const dlReady = (async () => {
+    try { return window.claude && window.claude.use ? await window.claude.use("downloads") : null; }
+    catch (e) { return null; }
+  })();
+  const ERR = {
+    declined: "Download cancelado.",
+    rate_limited: "Aguarde um instante e tente de novo.",
+    too_large: "Arquivo grande demais para esta visualização.",
+  };
+  async function saveBlob(filename, blob) {
+    const ns = await dlReady;
+    if (!ns) {
+      // outside Claude (e.g. GitHub Pages): plain browser download
+      const url = URL.createObjectURL(blob), a = document.createElement("a");
+      a.href = url; a.download = filename; document.body.append(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 30000);
+      toast("Baixando: " + filename);
+      return true;
+    }
+    try {
+      await ns.save({ filename, data: blob });
+      toast("Pronto: " + filename);
+      return true;
+    } catch (err) {
+      toast(ERR[err && err.code] || "Não foi possível baixar agora.");
+      return false;
+    }
+  }
+  async function download(id, btn) {
+    const m = byId[id]; if (!m) return;
+    if (btn) { btn.classList.add("busy"); btn.disabled = true; }
+    try {
+      const r = await fetch(m.dl);
+      if (!r.ok) throw new Error("fetch");
+      await saveBlob(m.filename, await r.blob());
+    } catch (e) { toast("Não foi possível carregar o arquivo."); }
+    finally { if (btn) { btn.classList.remove("busy"); btn.disabled = false; } }
+  }
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-dl]"); if (!b) return;
+    e.preventDefault(); e.stopPropagation(); download(b.dataset.dl, b);
+  });
+
+  // zip everything
+  const zipBtn = document.getElementById("zipAll"), zipLabel = zipBtn.querySelector("span"), zipText = zipLabel.textContent;
+  zipBtn.addEventListener("click", async () => {
+    if (typeof JSZip === "undefined") { toast("Não foi possível preparar o .zip agora."); return; }
+    zipBtn.disabled = true;
+    try {
+      const zip = new JSZip();
+      let n = 0;
+      for (const m of MEDIA) {
+        zipLabel.textContent = `Preparando ${++n} de ${MEDIA.length}…`;
+        const r = await fetch(m.dl); if (!r.ok) throw new Error("fetch");
+        zip.folder(m.folder).file(m.filename, await r.blob());
+      }
+      zipLabel.textContent = "Compactando…";
+      const blob = await zip.generateAsync({ type: "blob", compression: "STORE" });
+      await saveBlob("laraseline-material.zip", blob);
+    } catch (e) { toast("Não foi possível montar o .zip. Tente baixar os itens um a um."); }
+    finally { zipBtn.disabled = false; zipLabel.textContent = zipText; }
+  });
+
+  // ---------- material filters ----------
+  const filters = document.querySelectorAll(".filter");
+  filters.forEach(f => f.addEventListener("click", () => {
+    filters.forEach(o => o.setAttribute("aria-pressed", String(o === f)));
+    const k = f.dataset.f;
+    document.querySelectorAll(".mcard").forEach(c => c.hidden = k !== "all" && c.dataset.kind !== k);
+    document.querySelectorAll(".mgroup").forEach(g => g.hidden = !g.querySelector(".mcard:not([hidden])"));
+  }));
+
+  // ---------- lightbox ----------
+  const lb = document.getElementById("lightbox"), stage = document.getElementById("lbStage"),
+        cap = document.getElementById("lbCap"), count = document.getElementById("lbCount");
+  let list = [], idx = 0;
+  function show(i) {
+    idx = (i + list.length) % list.length;
+    const m = byId[list[idx]];
+    stage.replaceChildren();
+    if (m.type === "video") {
+      const v = document.createElement("video");
+      v.src = m.src; v.poster = m.poster; v.controls = true; v.playsInline = true; v.autoplay = true;
+      stage.append(v);
+    } else {
+      const im = document.createElement("img"); im.src = m.src; im.alt = m.alt; stage.append(im);
+    }
+    cap.textContent = m.caption;
+    count.textContent = `${idx + 1} / ${list.length}`;
+    lb.querySelectorAll(".lb-nav").forEach(b => b.hidden = list.length < 2);
+  }
+  function open(id, ctxEl) {
+    list = [...ctxEl.querySelectorAll("[data-open]")].filter(b => !b.closest("[hidden]")).map(b => b.dataset.open);
+    if (!list.length) list = [id];
+    show(list.indexOf(id));
+    try { lb.showModal(); } catch (e) { lb.setAttribute("open", ""); }
+  }
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-open]"); if (!b) return;
+    open(b.dataset.open, b.closest("[data-ctx]") || document.body);
+  });
+  function close() { stage.replaceChildren(); lb.close(); }
+  document.getElementById("lbClose").addEventListener("click", close);
+  document.getElementById("lbPrev").addEventListener("click", () => show(idx - 1));
+  document.getElementById("lbNext").addEventListener("click", () => show(idx + 1));
+  document.getElementById("lbDl").addEventListener("click", e => download(list[idx], e.currentTarget));
+  lb.addEventListener("close", () => stage.replaceChildren());
+  lb.addEventListener("keydown", e => {
+    if (e.key === "ArrowLeft") show(idx - 1);
+    if (e.key === "ArrowRight") show(idx + 1);
+  });
+  let sx = null;
+  stage.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener("touchend", e => {
+    if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
+  });
+
+  // one video at a time
+  document.addEventListener("play", e => {
+    if (e.target.tagName !== "VIDEO") return;
+    document.querySelectorAll("video").forEach(v => { if (v !== e.target) v.pause(); });
+  }, true);
+
+  // ---------- audio ----------
+  let ctx, master, analyser, noiseBuf;
+  function audio() {
+    if (ctx) { if (ctx.state === "suspended") ctx.resume(); return ctx; }
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = .8;
+    const comp = ctx.createDynamicsCompressor();
+    analyser = ctx.createAnalyser(); analyser.fftSize = 256;
+    master.connect(comp); comp.connect(analyser); analyser.connect(ctx.destination);
+    noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+    const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    return ctx;
+  }
+  function env(g, t, a, peak, dec) {
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(peak, t + a);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + a + dec);
+  }
+  function noise(t, dur, type, freq, q, peak, dec) {
+    const src = ctx.createBufferSource(); src.buffer = noiseBuf;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q || 1;
+    const g = ctx.createGain(); env(g, t, .002, peak, dec);
+    src.connect(f); f.connect(g); g.connect(master); src.start(t); src.stop(t + dur);
+  }
+  function osc(t, type, f0, f1, glide, peak, dec) {
+    const o = ctx.createOscillator(); o.type = type; o.frequency.setValueAtTime(f0, t);
+    if (f1) o.frequency.exponentialRampToValueAtTime(f1, t + glide);
+    const g = ctx.createGain(); env(g, t, .003, peak, dec);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + dec + .05);
+  }
+  const S = {
+    kick: t => osc(t, "sine", 160, 42, .14, 1, .45),
+    hat: t => noise(t, .08, "highpass", 8000, 1, .35, .05),
+    snare: t => { noise(t, .25, "bandpass", 2200, .8, .6, .18); osc(t, "triangle", 220, 140, .08, .4, .1); },
+    clap: t => { [0, .012, .024].forEach(o => noise(t + o, .05, "bandpass", 1400, 1.2, .55, .03)); noise(t + .036, .3, "bandpass", 1400, 1.2, .5, .2); },
+    bass: t => {
+      const o = ctx.createOscillator(); o.type = "sawtooth"; o.frequency.value = 55;
+      const f = ctx.createBiquadFilter(); f.type = "lowpass"; f.Q.value = 8;
+      f.frequency.setValueAtTime(900, t); f.frequency.exponentialRampToValueAtTime(90, t + .35);
+      const g = ctx.createGain(); env(g, t, .005, .55, .4);
+      o.connect(f); f.connect(g); g.connect(master); o.start(t); o.stop(t + .5);
+    },
+    laser: t => osc(t, "square", 2400, 180, .25, .18, .3),
+    horn: t => {
+      [0, .18, .36, .54].forEach((o, i) => {
+        const len = i === 3 ? .6 : .12;
+        [466, 470, 698].forEach(fr => {
+          const n = ctx.createOscillator(); n.type = "sawtooth"; n.frequency.value = fr;
+          const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t + o);
+          g.gain.exponentialRampToValueAtTime(.09, t + o + .01);
+          g.gain.setValueAtTime(.09, t + o + len); g.gain.exponentialRampToValueAtTime(0.0001, t + o + len + .05);
+          n.connect(g); g.connect(master); n.start(t + o); n.stop(t + o + len + .1);
+        });
+      });
+    },
+    riser: t => {
+      const src = ctx.createBufferSource(); src.buffer = noiseBuf;
+      const f = ctx.createBiquadFilter(); f.type = "bandpass"; f.Q.value = 4;
+      f.frequency.setValueAtTime(300, t); f.frequency.exponentialRampToValueAtTime(9000, t + 1.9);
+      const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(.5, t + 1.8); g.gain.exponentialRampToValueAtTime(0.0001, t + 2);
+      src.connect(f); f.connect(g); g.connect(master); src.start(t); src.stop(t + 2);
+    }
+  };
+  let energy = 0;
+  const padEls = {};
+  document.querySelectorAll(".pad").forEach(p => padEls[p.dataset.s] = p);
+  function trigger(name) {
+    audio(); S[name](ctx.currentTime);
+    energy = Math.min(1.6, energy + (name === "kick" ? .9 : .45));
+    const el = padEls[name]; el.classList.add("hit"); setTimeout(() => el.classList.remove("hit"), 110);
+  }
+  document.getElementById("pads").addEventListener("pointerdown", e => {
+    const p = e.target.closest(".pad"); if (!p) return; e.preventDefault(); trigger(p.dataset.s);
+  });
+  document.getElementById("pads").addEventListener("keydown", e => {
+    if ((e.key === "Enter" || e.key === " ") && e.target.closest(".pad")) { e.preventDefault(); trigger(e.target.dataset.s); }
+  });
+  const keyMap = {}; document.querySelectorAll(".pad").forEach(p => keyMap[p.dataset.k] = p.dataset.s);
+  addEventListener("keydown", e => {
+    if (e.repeat || e.target.matches("input,textarea") || lb.open || site.hidden) return;
+    if (keyMap[e.key]) trigger(keyMap[e.key]);
+  });
+
+  // ---------- sequencer ----------
+  const stepsEl = document.getElementById("steps");
+  const stepEls = Array.from({ length: 16 }, (_, i) => { const s = document.createElement("i"); if (i % 4 === 0) s.className = "q"; stepsEl.appendChild(s); return s; });
+  const bpmIn = document.getElementById("bpm"), bpmV = document.getElementById("bpmv"), playBtn = document.getElementById("play");
+  let bpm = 124, playing = false, step = 0, nextT = 0, timer;
+  bpmIn.addEventListener("input", () => { bpm = +bpmIn.value; bpmV.textContent = bpm; });
+  const pattern = {
+    kick: [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0],
+    hat:  [0,0,1,0, 0,0,1,0, 0,0,1,0, 0,0,1,1],
+    clap: [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,0],
+    bass: [0,0,1,0, 0,0,1,1, 0,0,1,0, 0,1,1,0]
+  };
+  function schedule() {
+    const spb = 60 / bpm / 4;
+    while (nextT < ctx.currentTime + .12) {
+      const s = step;
+      for (const k in pattern) if (pattern[k][s]) S[k](nextT);
+      const delay = Math.max(0, (nextT - ctx.currentTime) * 1000);
+      setTimeout(() => {
+        stepEls.forEach((el, i) => el.classList.toggle("on", i === s));
+        if (pattern.kick[s]) energy = Math.min(1.6, energy + .9);
+      }, delay);
+      nextT += spb; step = (step + 1) % 16;
+    }
+  }
+  playBtn.addEventListener("click", () => {
+    audio();
+    playing = !playing;
+    if (playing) { step = 0; nextT = ctx.currentTime + .05; timer = setInterval(schedule, 25); playBtn.textContent = "■ Parar loop"; }
+    else { clearInterval(timer); stepEls.forEach(el => el.classList.remove("on")); playBtn.textContent = "▶ Ligar loop 4/4"; }
+  });
+
+  // ---------- turntable ----------
+  const platter = document.getElementById("platter"), rpmEl = document.getElementById("rpm"), pitchEl = document.getElementById("pitch");
+  let angle = 0, vel = reduce ? 0 : 1.2, dragging = false, lastA = 0, lastTime = 0;
+  const center = () => { const r = platter.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+  const ptrAngle = e => { const [cx, cy] = center(); return Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI; };
+  let scratchSrc, scratchFilter, scratchGain;
+  platter.addEventListener("pointerdown", e => {
+    dragging = true; platter.setPointerCapture(e.pointerId); lastA = ptrAngle(e); lastTime = performance.now();
+    audio();
+    scratchSrc = ctx.createBufferSource(); scratchSrc.buffer = noiseBuf; scratchSrc.loop = true;
+    scratchFilter = ctx.createBiquadFilter(); scratchFilter.type = "bandpass"; scratchFilter.Q.value = 6; scratchFilter.frequency.value = 400;
+    scratchGain = ctx.createGain(); scratchGain.gain.value = 0;
+    scratchSrc.connect(scratchFilter); scratchFilter.connect(scratchGain); scratchGain.connect(master); scratchSrc.start();
+  });
+  platter.addEventListener("pointermove", e => {
+    if (!dragging) return;
+    const a = ptrAngle(e); let d = a - lastA; if (d > 180) d -= 360; if (d < -180) d += 360;
+    const now = performance.now(), dt = Math.max(1, now - lastTime);
+    angle += d; vel = d / dt * 16; lastA = a; lastTime = now;
+    const sp = Math.min(1, Math.abs(vel) / 25);
+    scratchGain.gain.setTargetAtTime(sp * .5, ctx.currentTime, .01);
+    scratchFilter.frequency.setTargetAtTime(300 + sp * 2600, ctx.currentTime, .01);
+    energy = Math.min(1.6, energy + sp * .2);
+  });
+  const release = () => {
+    if (!dragging) return; dragging = false;
+    if (scratchSrc) { scratchGain.gain.setTargetAtTime(0, ctx.currentTime, .02); scratchSrc.stop(ctx.currentTime + .2); scratchSrc = null; }
+  };
+  platter.addEventListener("pointerup", release); platter.addEventListener("pointercancel", release);
+
+  // ---------- visualizer ----------
+  const cv = document.getElementById("viz"), g = cv.getContext("2d");
+  let W, H, freq;
+  function size() { const r = cv.getBoundingClientRect(); W = cv.width = r.width * devicePixelRatio; H = cv.height = r.height * devicePixelRatio; }
+  size(); addEventListener("resize", size);
+  const N = 64;
+  let t0 = 0;
+  function frame(ts) {
+    const dt = Math.min(50, ts - t0 || 16); t0 = ts;
+    if (!site.hidden) {
+      if (!dragging) { vel += ((reduce ? 0 : 1.2) - vel) * .04; angle += vel * dt / 16; }
+      platter.style.transform = `rotate(${angle}deg)`;
+      const rpm = Math.round(33 * vel / 1.2); rpmEl.textContent = isFinite(rpm) ? rpm : 33;
+      pitchEl.textContent = ((vel / 1.2 - 1) * 100).toFixed(1).replace(/^(?!-)/, "+") + "%";
+      if (analyser) { freq = freq || new Uint8Array(analyser.frequencyBinCount); analyser.getByteFrequencyData(freq); }
+      if (!W) size();
+      g.clearRect(0, 0, W, H);
+      const bw = W / N;
+      const grad = g.createLinearGradient(0, H, 0, 0);
+      grad.addColorStop(0, "rgba(143,233,255,0)"); grad.addColorStop(.5, "rgba(143,233,255,.5)"); grad.addColorStop(1, "rgba(181,140,255,.9)");
+      g.fillStyle = grad;
+      for (let i = 0; i < N; i++) {
+        const idle = reduce ? .15 : (.18 + .12 * Math.sin(ts / 600 + i * .35) + .08 * Math.sin(ts / 230 + i * 1.7));
+        const live = freq ? freq[Math.floor(i / N * freq.length * .7)] / 255 : 0;
+        const shape = 1 - Math.abs(i - N / 2) / (N / 2) * .5;
+        const h = Math.max(idle * .6, live) * H * shape * (.7 + energy * .35);
+        g.fillRect(i * bw + bw * .18, H - h, bw * .64, h);
+      }
+      energy *= .92;
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
+</html>
