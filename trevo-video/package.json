@@ -1,0 +1,14 @@
+{
+  "name": "trevo-video",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Video vertical 60s: como funciona um trevo de estrada (Three.js + edge-tts + ffmpeg)",
+  "scripts": {
+    "tts": "python3 tools/tts.py",
+    "render": "node tools/render.cjs",
+    "mux": "python3 tools/mux.py"
+  },
+  "dependencies": {
+    "three": "0.160.0"
+  }
+}

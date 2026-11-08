@@ -1,0 +1,59 @@
+{
+  "voice": "pt-BR-FranciscaNeural",
+  "rate": "+8%",
+  "pitch": "+3Hz",
+  "total": 60.0,
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "gancho",
+      "text": "Já pensou como um monte de carro se cruza sem bater? Spoiler: é um trevo!",
+      "tags": [{ "word": "trevo", "label": "TREVO" }]
+    },
+    {
+      "id": "problema",
+      "text": "Duas estradas se cruzando no mesmo nível, todo mundo querendo passar junto. Dá ruim!",
+      "tags": [{ "word": "nível", "label": "MESMO NÍVEL" }],
+      "crashWord": "ruim"
+    },
+    {
+      "id": "semaforo",
+      "text": "O semáforo resolve, mas vira fila de domingo à noite voltando da praia.",
+      "tags": [{ "word": "semáforo", "label": "SEMÁFORO" }]
+    },
+    {
+      "id": "viaduto",
+      "text": "Então a engenharia teve uma ideia: o viaduto. Uma pista passa por cima da outra, apoiada em pilares. Ninguém se cruza!",
+      "tags": [
+        { "word": "viaduto", "label": "VIADUTO" },
+        { "word": "pilares", "label": "PILARES" }
+      ]
+    },
+    {
+      "id": "direita",
+      "text": "Mas e quem quer mudar de pista? Pra virar à direita é fácil: uma saída curtinha e pronto.",
+      "tags": [{ "word": "direita", "label": "DIREITA ➜" }]
+    },
+    {
+      "id": "esquerda",
+      "text": "O difícil é a esquerda. O carro sai pela direita, faz quase uma volta inteira na alça, e entra na outra pista já de frente. Estranho, mas funciona!",
+      "tags": [
+        { "word": "esquerda", "label": "ESQUERDA" },
+        { "word": "alça", "label": "ALÇA ↻" }
+      ]
+    },
+    {
+      "id": "vistadecima",
+      "text": "Faz isso nos quatro cantos e, visto de cima, parece um trevo de quatro folhas. Daí o nome!",
+      "tags": [{ "word": "folhas", "label": "4 FOLHAS 🍀" }]
+    },
+    {
+      "id": "final",
+      "text": "O defeito? É o tal do entrelaçamento: quem entra e quem sai disputam o mesmo pedaço de pista. Mesmo assim, zero semáforo. Segue pra mais curiosidades!",
+      "tags": [
+        { "word": "entrelaçamento", "label": "ENTRELAÇAMENTO" },
+        { "word": "zero", "label": "ZERO SEMÁFORO ✅" }
+      ]
+    }
+  ]
+}

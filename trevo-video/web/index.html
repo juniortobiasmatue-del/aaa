@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Trevo - frame</title>
+<style>
+  html, body { margin: 0; background: #000; overflow: hidden; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', 'Noto Color Emoji', sans-serif; }
+  #gl { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
+  #shade { position: absolute; left: 0; right: 0; bottom: 0; height: 760px;
+           background: linear-gradient(to top, rgba(8,14,28,.55), rgba(8,14,28,0)); pointer-events: none; }
+  #cone { position: absolute; left: 30px; top: 150px; width: 300px; height: 340px; overflow: visible;
+          filter: drop-shadow(0 10px 14px rgba(0,0,0,.35)); }
+  #cap { position: absolute; left: 0; right: 0; top: 1200px; text-align: center; white-space: nowrap;
+         font-weight: 900; font-size: 136px; line-height: 1; color: #fff; letter-spacing: -2px;
+         -webkit-text-stroke: 16px #0b0f1a; paint-order: stroke fill;
+         text-shadow: 0 10px 0 rgba(0,0,0,.30); will-change: transform; }
+  #tag { position: absolute; left: 0; right: 0; top: 520px; text-align: center; white-space: nowrap;
+         font-weight: 900; font-size: 92px; line-height: 1; color: #ffd21f; letter-spacing: -1px;
+         -webkit-text-stroke: 14px #1a1200; paint-order: stroke fill; text-shadow: 0 8px 0 rgba(0,0,0,.35); }
+  #xmark { position: absolute; left: 340px; top: 640px; width: 400px; height: 400px; opacity: 0; filter: drop-shadow(0 10px 0 rgba(0,0,0,.35)); }
+  #end { position: absolute; left: 0; right: 0; top: 1130px; text-align: center; opacity: 0; }
+  #end .pill { display: inline-block; padding: 34px 64px 38px; border-radius: 80px; background: #ffd21f; color: #161200;
+               font-weight: 900; font-size: 100px; line-height: 1.02; letter-spacing: -2px; border: 12px solid #161200;
+               box-shadow: 0 14px 0 rgba(0,0,0,.4); }
+  #end .pill small { display: block; font-size: 64px; letter-spacing: -1px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div id="shade"></div>
+  <svg id="cone" viewBox="0 0 300 340">
+    <ellipse cx="150" cy="330" rx="118" ry="11" fill="rgba(0,0,0,.28)"/>
+    <g id="bob">
+      <rect x="36" y="288" width="228" height="38" rx="11" fill="#2f3541"/>
+      <rect x="36" y="288" width="228" height="10" rx="5" fill="#434b5b"/>
+      <path d="M128 34 Q150 6 172 34 L248 292 L52 292 Z" fill="#ff7a1a"/>
+      <path d="M128 34 Q150 6 172 34 L177 52 L123 52 Z" fill="#ffa24d"/>
+      <polygon points="111.4,92 188.6,92 197.2,122 102.8,122" fill="#ffffff"/>
+      <polygon points="68.9,240 231.1,240 239.7,270 60.3,270" fill="#ffffff"/>
+      <g id="arms">
+        <g id="armL"><line x1="84" y1="200" x2="44" y2="196" stroke="#ff7a1a" stroke-width="15" stroke-linecap="round"/><circle cx="40" cy="195" r="15" fill="#fff" stroke="#d9dde3" stroke-width="3"/></g>
+        <g id="armR"><line x1="216" y1="200" x2="256" y2="196" stroke="#ff7a1a" stroke-width="15" stroke-linecap="round"/><circle cx="260" cy="195" r="15" fill="#fff" stroke="#d9dde3" stroke-width="3"/></g>
+      </g>
+      <g id="face">
+        <g id="eyeL"><circle cx="121" cy="160" r="19" fill="#fff" stroke="#16202e" stroke-width="4"/><circle id="pupL" cx="123" cy="162" r="8" fill="#16202e"/></g>
+        <g id="eyeR"><circle cx="179" cy="160" r="19" fill="#fff" stroke="#16202e" stroke-width="4"/><circle id="pupR" cx="181" cy="162" r="8" fill="#16202e"/></g>
+        <line id="browL" x1="104" y1="132" x2="136" y2="132" stroke="#16202e" stroke-width="6" stroke-linecap="round"/>
+        <line id="browR" x1="164" y1="132" x2="196" y2="132" stroke="#16202e" stroke-width="6" stroke-linecap="round"/>
+        <ellipse id="mouth" cx="150" cy="206" rx="19" ry="6" fill="#6a1a10" stroke="#16202e" stroke-width="4"/>
+        <ellipse cx="102" cy="190" rx="9" ry="5" fill="#ff5a3c" opacity=".55"/>
+        <ellipse cx="198" cy="190" rx="9" ry="5" fill="#ff5a3c" opacity=".55"/>
+      </g>
+    </g>
+  </svg>
+  <svg id="xmark" viewBox="0 0 100 100"><path d="M16 16 L84 84 M84 16 L16 84" stroke="#ff2d2d" stroke-width="20" stroke-linecap="round" fill="none"/><path d="M16 16 L84 84 M84 16 L16 84" stroke="#ff7b7b" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+  <div id="tag"></div>
+  <div id="cap"></div>
+  <div id="end"><div class="pill">SEGUE PRA MAIS<small>curiosidades 🚦</small></div></div>
+</div>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+<script type="module" src="/web/app.js"></script>
+</body>
+</html>

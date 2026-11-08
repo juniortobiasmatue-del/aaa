@@ -1,0 +1,7 @@
+node_modules/
+build/frames/
+build/voice/
+build/shots/
+build/logs/
+build/voice44.wav
+build/mix.wav
