@@ -82,7 +82,7 @@ subprocess.run([
     "ffmpeg", "-v", "error", "-y",
     "-framerate", str(TL["fps"]), "-i", os.path.join(BUILD, "frames2", "f_%05d.jpg"),
     "-i", mix_path,
-    "-c:v", "libx264", "-preset", "slow", "-crf", "19", "-pix_fmt", "yuv420p", "-profile:v", "high",
+    "-c:v", "libx264", "-preset", "slow", "-crf", "23", "-pix_fmt", "yuv420p", "-profile:v", "high",
     "-af", "highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=90:makeup=2,loudnorm=I=-15:TP=-1.5:LRA=9",
     "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest", "-movflags", "+faststart", out,
 ], check=True)
