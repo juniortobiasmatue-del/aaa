@@ -1,8 +1,10 @@
 node_modules/
 build/frames/
+build/frames2/
 build/voice/
-build/shots/
+build/shots*/
+build/rev/
+build/check*/
 build/logs/
 build/voice44.wav
 build/mix.wav
-build/check2/

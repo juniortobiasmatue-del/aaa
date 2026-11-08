@@ -2,7 +2,6 @@
 """Gera a narração (edge-tts, pt-BR) cena a cena e monta:
   build/timeline.json  -> cenas, tempos de cada palavra, tags e eventos
   build/voice.wav      -> narração completa (24 kHz mono) já alinhada à timeline
-  build/mouth.json     -> amplitude da voz por quadro (boca do mascote)
 """
 import asyncio, json, os, subprocess, sys, unicodedata
 import numpy as np
@@ -102,21 +101,6 @@ async def main():
     with wave.open(os.path.join(BUILD, "voice.wav"), "wb") as wf:
         wf.setnchannels(1); wf.setsampwidth(2); wf.setframerate(SR)
         wf.writeframes((voice * 32767).astype(np.int16).tobytes())
-
-    # amplitude por quadro (boca do mascote)
-    n = int(round(script["total"] * FPS))
-    win = int(SR / FPS)
-    env = np.zeros(n, dtype=np.float32)
-    for f in range(n):
-        c = int((f + 0.5) / FPS * SR)
-        seg = voice[max(0, c - win): c + win]
-        env[f] = np.sqrt(np.mean(seg ** 2)) if len(seg) else 0
-    ref = np.percentile(env[env > 0.01], 90) if np.any(env > 0.01) else 1
-    env = np.clip(env / ref, 0, 1)
-    sm = env.copy()
-    for f in range(1, n):  # ataque rápido, queda suave
-        sm[f] = max(env[f], sm[f - 1] * 0.6)
-    json.dump([round(float(x), 3) for x in sm], open(os.path.join(BUILD, "mouth.json"), "w"))
 
     json.dump({"fps": FPS, "total": script["total"], "scenes": scenes},
               open(os.path.join(BUILD, "timeline.json"), "w"), ensure_ascii=False, indent=1)

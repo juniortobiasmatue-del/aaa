@@ -30,7 +30,7 @@ def add(sig, t):
         mix[a:b] += sig[: b - a]
 
 
-def whoosh(dur=0.5, amp=0.16):
+def whoosh(dur=0.5, amp=0.09):
     m = int(dur * SR)
     t = np.linspace(0, 1, m)
     noise = rng.standard_normal(m).astype(np.float32)
@@ -57,7 +57,7 @@ def crash(amp=0.55):
     return (s / (np.max(np.abs(s)) + 1e-6) * amp).astype(np.float32)
 
 
-def ding(amp=0.16):
+def ding(amp=0.10):
     m = int(0.9 * SR); t = np.arange(m) / SR
     s = (np.sin(2 * np.pi * 988 * t) + 0.5 * np.sin(2 * np.pi * 1480 * t)) * np.exp(-t * 5)
     return (s / np.max(np.abs(s)) * amp).astype(np.float32)
@@ -80,9 +80,10 @@ with wave.open(mix_path, "wb") as wf:
 out = os.path.join(ROOT, "trevo-estrada.mp4")
 subprocess.run([
     "ffmpeg", "-v", "error", "-y",
-    "-framerate", str(TL["fps"]), "-i", os.path.join(BUILD, "frames", "f_%05d.jpg"),
+    "-framerate", str(TL["fps"]), "-i", os.path.join(BUILD, "frames2", "f_%05d.jpg"),
     "-i", mix_path,
     "-c:v", "libx264", "-preset", "slow", "-crf", "19", "-pix_fmt", "yuv420p", "-profile:v", "high",
+    "-af", "highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=90:makeup=2,loudnorm=I=-15:TP=-1.5:LRA=9",
     "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest", "-movflags", "+faststart", out,
 ], check=True)
 print("ok ->", out, round(os.path.getsize(out) / 1e6, 1), "MB")
